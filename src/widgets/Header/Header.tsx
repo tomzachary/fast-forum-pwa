@@ -1,5 +1,4 @@
 import reactLogo from '../../assets/react.svg'
-import viteLogo from '/vite.svg'
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'

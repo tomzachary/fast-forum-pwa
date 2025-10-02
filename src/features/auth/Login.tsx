@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './login.module.scss';
+import {createPasskey, promptforPasskey} from "./passkey.ts";
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,14 +19,7 @@ const Login: React.FC = () => {
     setError('');
     try {
       if (window.PublicKeyCredential) {
-        // Simple biometric prompt (does not actually verify credentials)
-        await navigator.credentials.get({
-          publicKey: {
-            challenge: new Uint8Array(32),
-            timeout: 60000,
-            userVerification: 'preferred',
-          }
-        });
+        promptforPasskey();
         setSuccess(true);
       } else {
         setError('Biometric authentication not supported on this device/browser.');
@@ -65,6 +59,11 @@ const Login: React.FC = () => {
         />
         <button type="submit" style={{ marginTop: 8 }}>Login</button>
       </form>
+      <button
+        type="button"
+        onClick={() => createPasskey()}>
+        Create Passkey (for demo)
+      </button>
       <button
         type="button"
         onClick={handleBiometricLogin}
