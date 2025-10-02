@@ -30,13 +30,15 @@ nav {
 nav a {
   color: #f3f3f3;
   background: #23272f;
-  padding: 8px 18px;
+  padding: 12px 20px; // Significantly increased horizontal padding for more space
+  margin: 0 4px; // Slightly increased margin for separation
   border-radius: 22px;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  min-width: 120px; // Ensures a minimum width for short labels
 }
 nav a:hover, nav a.active {
   background: #4f8cff;
@@ -47,15 +49,28 @@ nav a:hover, nav a.active {
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 7px 5px;
+    min-width: 0;
   }
   nav {
-    margin-top: 10px;
+    flex-direction: column;
     gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+    font-size: 1.05em;
+    padding: 14px 12px; // Add horizontal padding for mobile as well
+    border-radius: 16px;
+    box-sizing: border-box;
+    min-width: 100px;
   }
   .logo {
+    display: block;
+    margin: 0 auto 6px auto;
     height: 4px;
-    margin-right: 1px;
   }
 }

@@ -100,15 +100,19 @@ button:focus-visible {
 }
 
 @media (max-width: 600px) {
-  .content {
-    padding: 1rem;
+  body {
+    font-size: 0.98rem;
+    padding: 0;
   }
   h1 {
-    font-size: 2em;
+    font-size: 1.6em;
   }
-  .card {
-    padding: 1em;
-    margin: 1em auto;
+  h2 {
+    font-size: 1.2em;
+  }
+  .content {
+    padding: 0.5rem;
+    max-width: 100vw;
   }
 }
 

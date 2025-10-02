@@ -8,6 +8,9 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true
+      },
       manifest: {
         name: 'Fast Forum PWA',
         short_name: 'Forum',
@@ -16,16 +19,12 @@ export default defineConfig({
         background_color: '#1a1a1a',
         display: 'standalone',
         start_url: '/',
+
         icons: [
           {
-            src: 'vite.svg',
-            sizes: '192x192',
-            type: 'image/svg+xml',
-          },
-          {
-            src: 'vite.svg',
-            sizes: '512x512',
-            type: 'image/svg+xml',
+            src: '256.png',
+            sizes: '256x256',
+            type: 'image/png',
           }
         ]
       }

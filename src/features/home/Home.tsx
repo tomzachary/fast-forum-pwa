@@ -1,4 +1,3 @@
-import Header from "../../widgets/Header/Header.tsx";
 import Counter from "../counter/Counter.tsx";
 
 
