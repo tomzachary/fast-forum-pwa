@@ -9,7 +9,7 @@ export async function createPasskey(){
         return alert("Your browser does not support the Web Authentication API");
     }
 
-    const credentials = await navigator.credentials.create({
+    await navigator.credentials.create({
         publicKey: {
             challenge: generateRandomChallenge(),
             rp: { name: "FastForum", id: window.location.hostname },
@@ -28,7 +28,7 @@ export async function createPasskey(){
 
     //in a real app, you'll store the credentials against the user's profile in your DB
     //here we'll just save it in a global variable
-     window.currentPasskey = credentials;
+
 }
 
 export async function promptforPasskey(){
