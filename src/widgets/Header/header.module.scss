@@ -7,8 +7,11 @@
   justify-content: space-between;
   background: linear-gradient(90deg, #1a1a1a 60%, #23272f 100%);
   padding: 9px 16px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #23272f;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  min-height: 56px; // Ensures background covers logo and hamburger
+  box-sizing: border-box;
 }
 
 .logo {
@@ -46,12 +49,49 @@ nav a:hover, nav a.active {
   box-shadow: 0 2px 8px rgba(79,140,255,0.12);
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 200;
+  position: relative;
+}
+.bar {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #4f8cff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.5);
+}
+.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
     align-items: stretch;
     padding: 7px 5px;
+    padding-bottom: 16px;
     min-width: 0;
+    min-height: 56px; // Ensures background covers logo and hamburger on mobile
+    position: relative;
   }
   nav {
     flex-direction: column;
@@ -72,5 +112,34 @@ nav a:hover, nav a.active {
     display: block;
     margin: 0 auto 6px auto;
     height: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 16px;
+    top: 8px; // Adjust so it's always inside header
+  }
+  .nav {
+    display: none;
+  }
+  .navOpen {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #23272f;
+    box-shadow: 0 2px 16px rgba(79,140,255,0.08);
+    z-index: 150;
+    padding: 16px 0;
+    gap: 10px;
+    animation: slideDown 0.3s;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }

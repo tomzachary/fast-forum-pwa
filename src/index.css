@@ -67,11 +67,6 @@ button {
   box-shadow: 0 2px 8px rgba(79,140,255,0.08);
   transition: border-color 0.25s, background 0.2s, color 0.2s;
 }
-button:hover {
-  border-color: #fff;
-  background: linear-gradient(90deg, #4f8cff 60%, #23272f 100%);
-  color: #23272f;
-}
 button:focus,
 button:focus-visible {
   outline: 3px solid #4f8cff;
